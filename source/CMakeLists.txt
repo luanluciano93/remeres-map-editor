@@ -4,6 +4,10 @@
 # *****************************************************************************
 project(remeres)
 
+set(CMAKE_CXX_FLAGS_RELEASE "/MT")
+set(CMAKE_CXX_FLAGS_RELWITHDEBINFO "/MT")
+set(CMAKE_CXX_FLAGS_DEBUG "/MTd")
+
 find_package(asio CONFIG REQUIRED)
 find_package(fmt CONFIG REQUIRED)
 find_package(GLUT REQUIRED)
@@ -12,6 +16,7 @@ find_package(OpenGL REQUIRED)
 find_package(Threads REQUIRED)
 find_package(wxWidgets COMPONENTS html aui gl adv core net base CONFIG REQUIRED)
 find_package(ZLIB REQUIRED)
+find_package(pugixml CONFIG REQUIRED)
 
 # LibArchive disabled in compilation level by default, see "#define OTGZ_SUPPORT" in the "definitions.h" file
 #if(APPLE)
@@ -23,12 +28,17 @@ find_package(ZLIB REQUIRED)
 
 if (MSVC)
 	add_executable(${PROJECT_NAME} "" ../cmake/remeres.rc)
+
+	set_property(TARGET ${PROJECT_NAME} PROPERTY MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
+	target_compile_options(${PROJECT_NAME} PUBLIC /MP /FS /Zf /EHsc )
+
 else()
 	add_executable(${PROJECT_NAME} "")
 endif()
 
 # === PRECOMPILED HEADER ===
-#target_precompile_headers(${PROJECT_NAME} PRIVATE main.h)
+target_precompile_headers(${PROJECT_NAME} PRIVATE main.h)
+
 
 target_sources(${PROJECT_NAME}
 	PRIVATE
@@ -147,6 +157,7 @@ target_link_libraries(${PROJECT_NAME}
 	fmt::fmt
 	asio::asio
 	nlohmann_json::nlohmann_json
+	pugixml::pugixml
 	wx::base wx::core wx::net wx::gl wx::html wx::aui wx::adv
 )
 
