@@ -56,3 +56,4 @@ cmake-build-debug/
 *.pdb
 *.rar
 vcpkg_installed/
+*.ilk

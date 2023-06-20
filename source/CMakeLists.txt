@@ -29,6 +29,9 @@ find_package(pugixml CONFIG REQUIRED)
 if (MSVC)
 	add_executable(${PROJECT_NAME} "" ../cmake/remeres.rc)
 
+	set(CMAKE_CXX_FLAGS_RELEASE "/MT")
+	set(CMAKE_CXX_FLAGS_RELWITHDEBINFO "/MT")
+	set(CMAKE_CXX_FLAGS_DEBUG "/MTd")
 	set_property(TARGET ${PROJECT_NAME} PROPERTY MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
 	target_compile_options(${PROJECT_NAME} PUBLIC /MP /FS /Zf /EHsc )
 
