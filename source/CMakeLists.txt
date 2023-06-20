@@ -4,10 +4,6 @@
 # *****************************************************************************
 project(remeres)
 
-set(CMAKE_CXX_FLAGS_RELEASE "/MT")
-set(CMAKE_CXX_FLAGS_RELWITHDEBINFO "/MT")
-set(CMAKE_CXX_FLAGS_DEBUG "/MTd")
-
 find_package(asio CONFIG REQUIRED)
 find_package(fmt CONFIG REQUIRED)
 find_package(GLUT REQUIRED)
