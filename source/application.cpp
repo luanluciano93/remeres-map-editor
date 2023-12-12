@@ -112,6 +112,9 @@ bool Application::OnInit() {
 
 #if defined(__LINUX__) || defined(__WINDOWS__)
 	int argc = 1;
+	#if defined(__WINDOWS__)
+		#define strdup _strdup
+	#endif
 	char* arg = strdup(wxString(this->argv[0]).char_str());
 	char* argv[] = { arg };
 	glutInit(&argc, argv);
