@@ -1408,4 +1408,10 @@
     <monster name="Zugurosh" looktype="12" lookhead="2" lookbody="35" looklegs="57" lookfeet="91" lookaddons="0" />
     <monster name="Zulazza The Corruptor" looktype="334" />
     <monster name="Zushuka" looktype="149" lookhead="86" lookbody="12" looklegs="31" lookfeet="60" lookaddons="0" />
+
+    <monster name="Trainer" looktype="1317" lookhead="40" lookbody="95" looklegs="40" lookfeet="95" lookaddons="3" />
+    <monster name="Quests" looktype="1747" />
+    <monster name="Bosses" looktype="1304" />
+    <monster name="Hunts" looktype="1061" lookhead="15" lookbody="91" looklegs="85" lookfeet="0" lookaddons="0" />
+    <monster name="Exclusive Caves" looktype="1067" />
 </monsters>
