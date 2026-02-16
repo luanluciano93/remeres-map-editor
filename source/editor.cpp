@@ -783,6 +783,7 @@ bool Editor::importMap(FileName filename, int import_x_offset, int import_y_offs
 			map.removeSpawnMonster(old_tile);
 		}
 		import_tile->spawnMonster = nullptr;
+		import_tile->spawnNpc = nullptr;
 
 		map.setTile(new_pos, import_tile, true);
 	}
