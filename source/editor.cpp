@@ -781,6 +781,7 @@ bool Editor::importMap(FileName filename, int import_x_offset, int import_y_offs
 		Tile* old_tile = map.getTile(new_pos);
 		if (old_tile) {
 			map.removeSpawnMonster(old_tile);
+			map.removeSpawnNpc(old_tile);
 		}
 		import_tile->spawnMonster = nullptr;
 		import_tile->spawnNpc = nullptr;
