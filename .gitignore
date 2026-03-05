@@ -57,7 +57,7 @@ cmake-build-debug/
 
 # User
 *.dll
-*.exe
+#*.exe
 *.pdb
 *.rar
 *.lzma
