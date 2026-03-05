@@ -1664,4 +1664,64 @@
   <monster name="angry sugar fairy" looktype="1747" lookhead="15" lookbody="6" looklegs="53" lookfeet="93"/>
   <monster name="candy floss elemental" looktype="1749" lookfeet="94"/>
   <monster name="Goggle Cake" looktype="1740" lookbody="10" looklegs="115" lookfeet="72"/>
+  <!-- Winter Update 2025 - Regular Monsters -->
+  <monster name="Bone Bear" looktype="384"/>
+  <monster name="Creepy Crawler" looktype="1890"/>
+  <monster name="Crypt Construct" looktype="1887"/>
+  <monster name="Crypt Fiend" looktype="1885"/>
+  <monster name="Crypt Mage" looktype="1905"/>
+  <monster name="Cyclursus" looktype="1884"/>
+  <monster name="Day Night Harpy" looktype="1899"/>
+  <monster name="Destrier" looktype="434"/>
+  <monster name="Haunted Hunter" looktype="1889"/>
+  <monster name="Imperial" looktype="1914"/>
+  <monster name="Night Harpy" looktype="1899"/>
+  <monster name="Raubritter Chastener" looktype="1902" lookhead="94" lookbody="19" looklegs="21" lookfeet="78"/>
+  <monster name="Raubritter Marksman" looktype="1901" lookhead="94" lookbody="19" looklegs="118" lookfeet="2" lookaddons="2"/>
+  <monster name="Raubritter Skirmisher" looktype="1900" lookhead="94" lookbody="19" looklegs="3" lookfeet="19"/>
+  <monster name="Roaming Dread" looktype="1904"/>
+  <monster name="Stag" looktype="1913"/>
+  <monster name="Walking Dread" looktype="1886"/>
+  <!-- Winter Update 2025 - Bosses -->
+  <monster name="Adlerauge" looktype="1901" lookhead="94" lookbody="38" looklegs="67" lookfeet="19" lookaddons="2"/>
+  <monster name="Adventurer Group" lookitem="52836"/>
+  <monster name="Bone Overlord" lookitem="52831"/>
+  <monster name="Clavius" looktype="1902" lookhead="94" lookbody="19" looklegs="36" lookfeet="56"/>
+  <monster name="Court Warlock" looktype="1903" lookaddons="1"/>
+  <monster name="Eldritch Dragon Lord" looktype="1879"/>
+  <monster name="Fiona Firstdream" looktype="1681" lookhead="92" lookbody="91" looklegs="94" lookfeet="79" lookaddons="3"/>
+  <monster name="Grendel Greenlunch" looktype="144" lookhead="22" lookbody="62" looklegs="101" lookfeet="58" lookaddons="3"/>
+  <monster name="Ice Horror" looktype="1881"/>
+  <monster name="Michael the Stalwart" looktype="1900" lookhead="94" lookbody="31" looklegs="19" lookfeet="38" lookaddons="3"/>
+  <monster name="Nigel Neverguess" looktype="1837" lookhead="38" lookbody="4" looklegs="8" lookfeet="11" lookaddons="3"/>
+  <monster name="Overseer Osverger" looktype="1902" lookhead="114" lookbody="76" looklegs="57" lookfeet="57"/>
+  <monster name="Percy Peacetinker" looktype="137" lookhead="79" lookbody="31" looklegs="101" lookfeet="130" lookaddons="3"/>
+  <monster name="The Gravedigger" looktype="1880"/>
+  <monster name="Yorik Youngbook" looktype="268" lookhead="57" lookbody="77" looklegs="79" lookfeet="114" lookaddons="3"/>
+  <!-- Winter Update 2025 - Quest Creatures -->
+  <monster name="An Eye" looktype="925"/>
+  <monster name="Bone Barrier" lookitem="6973"/>
+  <monster name="Bonelord Totem" lookitem="51192"/>
+  <monster name="Bonelord's Phylactery" lookitem="52466"/>
+  <monster name="Bright Crystal" lookitem="7806"/>
+  <monster name="Elyrax's Spirit" looktype="1883"/>
+  <monster name="Elyrax's Soulcage" lookitem="52546"/>
+  <monster name="Energised Raubritter" looktype="1901" lookhead="94" lookbody="14" looklegs="72" lookfeet="129"/>
+  <monster name="Enthralled Dragon" looktype="231"/>
+  <monster name="Eruption" lookitem="51952"/>
+  <monster name="Fatal Bug" looktype="79"/>
+  <monster name="Flame Totem" lookitem="51953"/>
+  <monster name="Frozen Raubritter" looktype="1900" lookhead="86" lookbody="86" looklegs="10" lookfeet="87" lookaddons="1"/>
+  <monster name="Ice Blockade" lookitem="6707"/>
+  <monster name="Ice Crawler" looktype="263"/>
+  <monster name="Myzareth's Spirit" looktype="1883"/>
+  <monster name="Myzareth's Soulcage" lookitem="52546"/>
+  <monster name="Poisoned Raubritter" looktype="1902" lookhead="82" lookbody="120" looklegs="102" lookfeet="120"/>
+  <monster name="Pulsating Lava" lookitem="391"/>
+  <monster name="Raging Raubritter" looktype="1900" lookhead="94" lookbody="113" looklegs="113" lookfeet="113"/>
+  <monster name="Scarith's Spirit" looktype="1883"/>
+  <monster name="Scarith's Soulcage" lookitem="52546"/>
+  <monster name="Tamed Frazzlemaw" looktype="594"/>
+  <monster name="Zharvorin's Spirit" looktype="1883"/>
+  <monster name="Zharvorin's Soulcage" lookitem="52546"/>
 </monsters>

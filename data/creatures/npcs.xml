@@ -1024,4 +1024,54 @@
 	<npc name="Zumtah" looktype="51" lookitem="0" lookaddon="0" lookhead="0" lookbody="0" looklegs="0" lookfeet="0" />
 	<npc name="Zurak" looktype="114" lookitem="0" lookaddon="0" lookhead="0" lookbody="0" looklegs="0" lookfeet="0" />
 	<npc name="Zurak (Arena)" looktype="114" lookitem="0" lookaddon="0" lookhead="0" lookbody="0" looklegs="0" lookfeet="0" />
+	<!-- Winter Update 2025 NPCs -->
+	<npc name="Brewmaster Bhaan" looktype="132" lookitem="0" lookaddon="0" lookhead="57" lookbody="113" looklegs="95" lookfeet="115" />
+	<npc name="Captain Marie-Denise Banner" looktype="1691" lookitem="0" lookaddon="0" lookhead="78" lookbody="57" looklegs="76" lookfeet="95" />
+	<npc name="Dragon Ancestor Spirit" looktype="1883" lookitem="0" lookaddon="0" lookhead="0" lookbody="0" looklegs="0" lookfeet="0" />
+	<npc name="Drunken Sailor" looktype="128" lookitem="0" lookaddon="0" lookhead="95" lookbody="95" looklegs="95" lookfeet="95" />
+	<npc name="Eldoran the Ambitious" looktype="133" lookitem="0" lookaddon="2" lookhead="95" lookbody="19" looklegs="19" lookfeet="95" />
+	<npc name="Exhausted Lion Knight" looktype="1317" lookitem="0" lookaddon="1" lookhead="0" lookbody="78" looklegs="57" lookfeet="57" />
+	<npc name="Fitzduncan" looktype="132" lookitem="0" lookaddon="0" lookhead="78" lookbody="97" looklegs="116" lookfeet="115" />
+	<npc name="Guard Captain Hartford" looktype="131" lookitem="0" lookaddon="3" lookhead="78" lookbody="52" looklegs="94" lookfeet="116" />
+	<npc name="Guard Post" looktype="131" lookitem="0" lookaddon="0" lookhead="78" lookbody="52" looklegs="94" lookfeet="116" />
+	<npc name="Hardened Lion Archer" looktype="1316" lookitem="0" lookaddon="2" lookhead="0" lookbody="78" looklegs="57" lookfeet="57" />
+	<npc name="Lieutenant Harlan" looktype="131" lookitem="0" lookaddon="1" lookhead="78" lookbody="76" looklegs="76" lookfeet="95" />
+	<npc name="Persevering Lion Archer" looktype="1316" lookitem="0" lookaddon="2" lookhead="0" lookbody="78" looklegs="57" lookfeet="57" />
+	<npc name="Raubritter Battler" looktype="1900" lookitem="0" lookaddon="0" lookhead="94" lookbody="19" looklegs="3" lookfeet="19" />
+	<npc name="Raubritter Chastener" looktype="1902" lookitem="0" lookaddon="0" lookhead="94" lookbody="19" looklegs="21" lookfeet="78" />
+	<npc name="Raubritter Chastigator" looktype="1902" lookitem="0" lookaddon="0" lookhead="94" lookbody="19" looklegs="21" lookfeet="78" />
+	<npc name="Raubritter Guard" looktype="1900" lookitem="0" lookaddon="0" lookhead="94" lookbody="19" looklegs="3" lookfeet="19" />
+	<npc name="Raubritter Guardsman" looktype="1900" lookitem="0" lookaddon="0" lookhead="94" lookbody="19" looklegs="3" lookfeet="19" />
+	<npc name="Raubritter Honour Guard" looktype="1902" lookitem="0" lookaddon="0" lookhead="94" lookbody="19" looklegs="21" lookfeet="78" />
+	<npc name="Raubritter Patrol" looktype="1900" lookitem="0" lookaddon="0" lookhead="94" lookbody="19" looklegs="3" lookfeet="19" />
+	<npc name="Raubritter Post" looktype="1900" lookitem="0" lookaddon="0" lookhead="94" lookbody="19" looklegs="3" lookfeet="19" />
+	<npc name="Raubritter Purifier" looktype="1902" lookitem="0" lookaddon="0" lookhead="94" lookbody="19" looklegs="21" lookfeet="78" />
+	<npc name="Raubritter Sentinel" looktype="1900" lookitem="0" lookaddon="0" lookhead="94" lookbody="19" looklegs="3" lookfeet="19" />
+	<npc name="Raubritter Sentry" looktype="1900" lookitem="0" lookaddon="0" lookhead="94" lookbody="19" looklegs="3" lookfeet="19" />
+	<npc name="Raubritter Thug" looktype="1900" lookitem="0" lookaddon="0" lookhead="94" lookbody="19" looklegs="3" lookfeet="19" />
+	<npc name="S'Zallar M'Andar" looktype="115" lookitem="0" lookaddon="0" lookhead="0" lookbody="0" looklegs="0" lookfeet="0" />
+	<npc name="Second in Command Demeron" looktype="131" lookitem="0" lookaddon="2" lookhead="78" lookbody="76" looklegs="94" lookfeet="116" />
+	<npc name="Steward Volkmar" looktype="132" lookitem="0" lookaddon="1" lookhead="78" lookbody="118" looklegs="97" lookfeet="115" />
+	<npc name="Stranded Lion Knight" looktype="1317" lookitem="0" lookaddon="1" lookhead="0" lookbody="78" looklegs="57" lookfeet="57" />
+	<npc name="Swashbuckling Lion Archer" looktype="1316" lookitem="0" lookaddon="2" lookhead="0" lookbody="78" looklegs="57" lookfeet="57" />
+	<npc name="The Silent Oarsman" looktype="18" lookitem="0" lookaddon="0" lookhead="0" lookbody="0" looklegs="0" lookfeet="0" />
+	<npc name="Weary Lion Knight" looktype="1317" lookitem="0" lookaddon="1" lookhead="0" lookbody="78" looklegs="57" lookfeet="57" />
+	<!-- Newhaven Update 2025 NPCs -->
+	<npc name="A Seagull" looktype="223" lookitem="0" lookaddon="0" lookhead="0" lookbody="0" looklegs="0" lookfeet="0" />
+	<npc name="Anna" looktype="1576" lookitem="0" lookaddon="2" lookhead="114" lookbody="71" looklegs="71" lookfeet="66" />
+	<npc name="Avriel" looktype="472" lookitem="0" lookaddon="0" lookhead="78" lookbody="25" looklegs="32" lookfeet="118" />
+	<npc name="Flavius" looktype="132" lookitem="0" lookaddon="1" lookhead="39" lookbody="44" looklegs="49" lookfeet="76" />
+	<npc name="Gustavo the Guard" looktype="134" lookitem="0" lookaddon="0" lookhead="95" lookbody="0" looklegs="96" lookfeet="116" />
+	<npc name="Oblivis" looktype="1221" lookitem="0" lookaddon="0" lookhead="0" lookbody="57" looklegs="114" lookfeet="95" />
+	<npc name="Rosina" looktype="140" lookitem="0" lookaddon="0" lookhead="78" lookbody="39" looklegs="39" lookfeet="95" />
+	<npc name="Viola" looktype="138" lookitem="0" lookaddon="0" lookhead="95" lookbody="109" looklegs="94" lookfeet="116" />
+	<!-- Summer Update 2025 NPCs -->
+	<npc name="An Ominous Bat" looktype="122" lookitem="0" lookaddon="0" lookhead="0" lookbody="0" looklegs="0" lookfeet="0" />
+	<npc name="An Orchish Ancestor Spirit" looktype="1268" lookitem="0" lookaddon="0" lookhead="82" lookbody="82" looklegs="82" lookfeet="82" />
+	<npc name="Anaztassja Moroia" looktype="312" lookitem="0" lookaddon="0" lookhead="0" lookbody="0" looklegs="0" lookfeet="0" />
+	<npc name="Anaztassja Moroia Init" looktype="312" lookitem="0" lookaddon="0" lookhead="0" lookbody="0" looklegs="0" lookfeet="0" />
+	<npc name="Anaztassja Moroia Vampires Lair" looktype="312" lookitem="0" lookaddon="0" lookhead="0" lookbody="0" looklegs="0" lookfeet="0" />
+	<npc name="Ghouliver" looktype="18" lookitem="0" lookaddon="0" lookhead="0" lookbody="0" looklegs="0" lookfeet="0" />
+	<npc name="Omniphant" looktype="1818" lookitem="0" lookaddon="0" lookhead="0" lookbody="0" looklegs="0" lookfeet="0" />
+	<npc name="Quill" looktype="1848" lookitem="0" lookaddon="0" lookhead="78" lookbody="108" looklegs="39" lookfeet="114" />
 </npcs>
