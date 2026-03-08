@@ -36,11 +36,11 @@ private:
 	};
 
 	struct BorderEntry {
-		bool outer;          // true=outer, false=inner
+		bool outer; // true=outer, false=inner
 		bool super;
-		uint32_t to;         // 0xFFFFFFFF=all, 0=none, otherwise brush ID
+		uint32_t to; // 0xFFFFFFFF=all, 0=none, otherwise brush ID
 		std::string to_name; // display name: "all", "none", or brush name
-		uint32_t border_id;  // AutoBorder ID reference
+		uint32_t border_id; // AutoBorder ID reference
 	};
 
 	struct BrushData {

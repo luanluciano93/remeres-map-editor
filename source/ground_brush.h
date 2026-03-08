@@ -98,18 +98,40 @@ public:
 	};
 
 	// Accessors for editor
-	int32_t getZOrder() const { return z_order; }
-	void setZOrder(int32_t z) { z_order = z; }
-	bool getRandomize() const { return randomize; }
-	void setRandomize(bool r) { randomize = r; }
-	bool getUseOnlyOptional() const { return use_only_optional; }
-	void setUseOnlyOptional(bool v) { use_only_optional = v; }
-	AutoBorder* getOptionalBorder() const { return optional_border; }
-	void setOptionalBorder(AutoBorder* b) { optional_border = b; }
-	int getTotalChance() const { return total_chance; }
+	int32_t getZOrder() const {
+		return z_order;
+	}
+	void setZOrder(int32_t z) {
+		z_order = z;
+	}
+	bool getRandomize() const {
+		return randomize;
+	}
+	void setRandomize(bool r) {
+		randomize = r;
+	}
+	bool getUseOnlyOptional() const {
+		return use_only_optional;
+	}
+	void setUseOnlyOptional(bool v) {
+		use_only_optional = v;
+	}
+	AutoBorder* getOptionalBorder() const {
+		return optional_border;
+	}
+	void setOptionalBorder(AutoBorder* b) {
+		optional_border = b;
+	}
+	int getTotalChance() const {
+		return total_chance;
+	}
 
-	const std::vector<BorderBlock*> &getBorderBlocks() const { return borders; }
-	const std::vector<ItemChanceBlock> &getBorderItems() const { return border_items; }
+	const std::vector<BorderBlock*> &getBorderBlocks() const {
+		return borders;
+	}
+	const std::vector<ItemChanceBlock> &getBorderItems() const {
+		return border_items;
+	}
 
 protected: // Members
 	int32_t z_order;

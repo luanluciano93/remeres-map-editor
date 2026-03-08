@@ -114,8 +114,7 @@ GroundBrushEditorDialog::GroundBrushEditorDialog(wxWindow* parent) :
 	// --- Borders Section ---
 	wxStaticBoxSizer* borders_sizer = newd wxStaticBoxSizer(wxVERTICAL, this, "Borders");
 
-	borders_listctrl = newd wxListCtrl(this, GROUND_BRUSH_EDITOR_BORDERS_LIST, wxDefaultPosition, wxSize(-1, 100),
-		wxLC_REPORT | wxLC_SINGLE_SEL);
+	borders_listctrl = newd wxListCtrl(this, GROUND_BRUSH_EDITOR_BORDERS_LIST, wxDefaultPosition, wxSize(-1, 100), wxLC_REPORT | wxLC_SINGLE_SEL);
 	borders_listctrl->InsertColumn(0, "Align", wxLIST_FORMAT_LEFT, 60);
 	borders_listctrl->InsertColumn(1, "To", wxLIST_FORMAT_LEFT, 120);
 	borders_listctrl->InsertColumn(2, "Border ID", wxLIST_FORMAT_LEFT, 80);
@@ -194,8 +193,7 @@ GroundBrushEditorDialog::GroundBrushEditorDialog(wxWindow* parent) :
 	// ========== RIGHT PANEL: Item Picker ==========
 	wxStaticBoxSizer* right_sizer = newd wxStaticBoxSizer(wxVERTICAL, this, "Item Picker");
 
-	item_filter_text = newd wxTextCtrl(this, GROUND_BRUSH_EDITOR_ITEM_FILTER, "",
-		wxDefaultPosition, wxDefaultSize, 0);
+	item_filter_text = newd wxTextCtrl(this, GROUND_BRUSH_EDITOR_ITEM_FILTER, "", wxDefaultPosition, wxDefaultSize, 0);
 	item_filter_text->SetHint("Filter items by name or ID...");
 	right_sizer->Add(item_filter_text, 0, wxEXPAND | wxALL, 5);
 
@@ -316,8 +314,7 @@ void GroundBrushEditorDialog::LoadBrushesFromMemory() {
 	}
 
 	// Sort by name
-	std::sort(brush_list.begin(), brush_list.end(),
-		[](const BrushData &a, const BrushData &b) { return a.name < b.name; });
+	std::sort(brush_list.begin(), brush_list.end(), [](const BrushData &a, const BrushData &b) { return a.name < b.name; });
 }
 
 wxString GroundBrushEditorDialog::GetBrushDisplayName(const BrushData &brush) const {
@@ -523,8 +520,7 @@ void GroundBrushEditorDialog::OnAddBrush(wxCommandEvent &event) {
 	brush_list.push_back(newBrush);
 
 	// Sort by name
-	std::sort(brush_list.begin(), brush_list.end(),
-		[](const BrushData &a, const BrushData &b) { return a.name < b.name; });
+	std::sort(brush_list.begin(), brush_list.end(), [](const BrushData &a, const BrushData &b) { return a.name < b.name; });
 
 	RefreshBrushList();
 
@@ -547,7 +543,8 @@ void GroundBrushEditorDialog::OnRemoveBrush(wxCommandEvent &event) {
 
 	int result = wxMessageBox(
 		wxString::Format("Remove ground brush '%s'?", wxString(brush_list[current_selection].name)),
-		"Confirm", wxYES_NO | wxICON_QUESTION, this);
+		"Confirm", wxYES_NO | wxICON_QUESTION, this
+	);
 
 	if (result != wxYES) {
 		return;

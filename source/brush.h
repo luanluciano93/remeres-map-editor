@@ -338,9 +338,15 @@ public:
 	bool friendOf(TerrainBrush* other);
 
 	// Accessors for editor
-	const std::vector<uint32_t> &getFriends() const { return friends; }
-	bool getHateFriends() const { return hate_friends; }
-	void setLookID(uint16_t id) { look_id = id; }
+	const std::vector<uint32_t> &getFriends() const {
+		return friends;
+	}
+	bool getHateFriends() const {
+		return hate_friends;
+	}
+	void setLookID(uint16_t id) {
+		look_id = id;
+	}
 
 protected:
 	std::vector<uint32_t> friends;

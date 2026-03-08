@@ -25,12 +25,11 @@
 // ItemPickerListBox
 // ============================================================================
 
-ItemPickerListBox::ItemPickerListBox(wxWindow* parent, wxWindowID id,
-	const wxPoint& pos, const wxSize& size) :
+ItemPickerListBox::ItemPickerListBox(wxWindow* parent, wxWindowID id, const wxPoint &pos, const wxSize &size) :
 	wxVListBox(parent, id, pos, size, wxLB_SINGLE) {
 }
 
-void ItemPickerListBox::AddItem(uint16_t id, uint16_t clientID, const wxString& name) {
+void ItemPickerListBox::AddItem(uint16_t id, uint16_t clientID, const wxString &name) {
 	entries.push_back({ id, clientID, name });
 }
 
@@ -52,7 +51,7 @@ uint16_t ItemPickerListBox::GetSelectedItemID() const {
 	return entries[sel].id;
 }
 
-void ItemPickerListBox::OnDrawItem(wxDC& dc, const wxRect& rect, size_t n) const {
+void ItemPickerListBox::OnDrawItem(wxDC &dc, const wxRect &rect, size_t n) const {
 	if (n >= entries.size()) {
 		return;
 	}
@@ -79,12 +78,11 @@ wxCoord ItemPickerListBox::OnMeasureItem(size_t n) const {
 // BrushItemListBox
 // ============================================================================
 
-BrushItemListBox::BrushItemListBox(wxWindow* parent, wxWindowID id,
-	const wxPoint& pos, const wxSize& size) :
+BrushItemListBox::BrushItemListBox(wxWindow* parent, wxWindowID id, const wxPoint &pos, const wxSize &size) :
 	wxVListBox(parent, id, pos, size, wxLB_SINGLE) {
 }
 
-void BrushItemListBox::AddItem(uint16_t id, uint16_t clientID, int chance, const wxString& name) {
+void BrushItemListBox::AddItem(uint16_t id, uint16_t clientID, int chance, const wxString &name) {
 	entries.push_back({ id, clientID, chance, name });
 }
 
@@ -98,7 +96,7 @@ void BrushItemListBox::DoneAdding() {
 	Refresh();
 }
 
-void BrushItemListBox::OnDrawItem(wxDC& dc, const wxRect& rect, size_t n) const {
+void BrushItemListBox::OnDrawItem(wxDC &dc, const wxRect &rect, size_t n) const {
 	if (n >= entries.size()) {
 		return;
 	}

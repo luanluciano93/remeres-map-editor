@@ -42,37 +42,63 @@ END_EVENT_TABLE()
 
 const char* BorderEditorDialog::GetEdgeName(int edgeId) {
 	switch (edgeId) {
-		case NORTH_HORIZONTAL: return "N";
-		case EAST_HORIZONTAL: return "E";
-		case SOUTH_HORIZONTAL: return "S";
-		case WEST_HORIZONTAL: return "W";
-		case NORTHWEST_CORNER: return "CNW";
-		case NORTHEAST_CORNER: return "CNE";
-		case SOUTHWEST_CORNER: return "CSW";
-		case SOUTHEAST_CORNER: return "CSE";
-		case NORTHWEST_DIAGONAL: return "DNW";
-		case NORTHEAST_DIAGONAL: return "DNE";
-		case SOUTHEAST_DIAGONAL: return "DSE";
-		case SOUTHWEST_DIAGONAL: return "DSW";
-		default: return "?";
+		case NORTH_HORIZONTAL:
+			return "N";
+		case EAST_HORIZONTAL:
+			return "E";
+		case SOUTH_HORIZONTAL:
+			return "S";
+		case WEST_HORIZONTAL:
+			return "W";
+		case NORTHWEST_CORNER:
+			return "CNW";
+		case NORTHEAST_CORNER:
+			return "CNE";
+		case SOUTHWEST_CORNER:
+			return "CSW";
+		case SOUTHEAST_CORNER:
+			return "CSE";
+		case NORTHWEST_DIAGONAL:
+			return "DNW";
+		case NORTHEAST_DIAGONAL:
+			return "DNE";
+		case SOUTHEAST_DIAGONAL:
+			return "DSE";
+		case SOUTHWEST_DIAGONAL:
+			return "DSW";
+		default:
+			return "?";
 	}
 }
 
 const char* BorderEditorDialog::GetEdgeXMLName(int edgeId) {
 	switch (edgeId) {
-		case NORTH_HORIZONTAL: return "n";
-		case EAST_HORIZONTAL: return "e";
-		case SOUTH_HORIZONTAL: return "s";
-		case WEST_HORIZONTAL: return "w";
-		case NORTHWEST_CORNER: return "cnw";
-		case NORTHEAST_CORNER: return "cne";
-		case SOUTHWEST_CORNER: return "csw";
-		case SOUTHEAST_CORNER: return "cse";
-		case NORTHWEST_DIAGONAL: return "dnw";
-		case NORTHEAST_DIAGONAL: return "dne";
-		case SOUTHEAST_DIAGONAL: return "dse";
-		case SOUTHWEST_DIAGONAL: return "dsw";
-		default: return "";
+		case NORTH_HORIZONTAL:
+			return "n";
+		case EAST_HORIZONTAL:
+			return "e";
+		case SOUTH_HORIZONTAL:
+			return "s";
+		case WEST_HORIZONTAL:
+			return "w";
+		case NORTHWEST_CORNER:
+			return "cnw";
+		case NORTHEAST_CORNER:
+			return "cne";
+		case SOUTHWEST_CORNER:
+			return "csw";
+		case SOUTHEAST_CORNER:
+			return "cse";
+		case NORTHWEST_DIAGONAL:
+			return "dnw";
+		case NORTHEAST_DIAGONAL:
+			return "dne";
+		case SOUTHEAST_DIAGONAL:
+			return "dse";
+		case SOUTHWEST_DIAGONAL:
+			return "dsw";
+		default:
+			return "";
 	}
 }
 
@@ -132,28 +158,32 @@ BorderEditorDialog::BorderEditorDialog(wxWindow* parent) :
 
 	// Edge IDs for each cell in row-major order
 	int edge_order[] = {
-		NORTH_HORIZONTAL, EAST_HORIZONTAL,
-		NORTHWEST_CORNER, NORTHEAST_CORNER,
-		NORTHWEST_DIAGONAL, NORTHEAST_DIAGONAL,
-		SOUTH_HORIZONTAL, WEST_HORIZONTAL,
-		SOUTHWEST_CORNER, SOUTHEAST_CORNER,
-		SOUTHWEST_DIAGONAL, SOUTHEAST_DIAGONAL,
+		NORTH_HORIZONTAL,
+		EAST_HORIZONTAL,
+		NORTHWEST_CORNER,
+		NORTHEAST_CORNER,
+		NORTHWEST_DIAGONAL,
+		NORTHEAST_DIAGONAL,
+		SOUTH_HORIZONTAL,
+		WEST_HORIZONTAL,
+		SOUTHWEST_CORNER,
+		SOUTHEAST_CORNER,
+		SOUTHWEST_DIAGONAL,
+		SOUTHEAST_DIAGONAL,
 	};
 
 	for (int i = 0; i < 12; i++) {
 		int edgeId = edge_order[i];
 		wxBoxSizer* cell_sizer = newd wxBoxSizer(wxVERTICAL);
 
-		edge_buttons[edgeId] = newd DCButton(this, BORDER_EDITOR_EDGE_BASE + edgeId,
-			wxDefaultPosition, DC_BTN_NORMAL, RENDER_SIZE_32x32, 0);
+		edge_buttons[edgeId] = newd DCButton(this, BORDER_EDITOR_EDGE_BASE + edgeId, wxDefaultPosition, DC_BTN_NORMAL, RENDER_SIZE_32x32, 0);
 		edge_buttons[edgeId]->SetMinSize(wxSize(36, 36));
 
 		// Bind click events
 		edge_buttons[edgeId]->Bind(wxEVT_LEFT_DOWN, &BorderEditorDialog::OnEdgeClick, this);
 		edge_buttons[edgeId]->Bind(wxEVT_RIGHT_DOWN, &BorderEditorDialog::OnEdgeClear, this);
 
-		edge_labels[edgeId] = newd wxStaticText(this, wxID_ANY, GetEdgeName(edgeId),
-			wxDefaultPosition, wxDefaultSize, wxALIGN_CENTRE_HORIZONTAL);
+		edge_labels[edgeId] = newd wxStaticText(this, wxID_ANY, GetEdgeName(edgeId), wxDefaultPosition, wxDefaultSize, wxALIGN_CENTRE_HORIZONTAL);
 
 		cell_sizer->Add(edge_buttons[edgeId], 0, wxALIGN_CENTER);
 		cell_sizer->Add(edge_labels[edgeId], 0, wxALIGN_CENTER | wxTOP, 2);
@@ -180,8 +210,7 @@ BorderEditorDialog::BorderEditorDialog(wxWindow* parent) :
 	// ========== RIGHT PANEL: Item Picker ==========
 	wxStaticBoxSizer* right_sizer = newd wxStaticBoxSizer(wxVERTICAL, this, "Select Item to Assign");
 
-	item_filter_text = newd wxTextCtrl(this, BORDER_EDITOR_ITEM_FILTER, "",
-		wxDefaultPosition, wxDefaultSize, 0);
+	item_filter_text = newd wxTextCtrl(this, BORDER_EDITOR_ITEM_FILTER, "", wxDefaultPosition, wxDefaultSize, 0);
 	item_filter_text->SetHint("Filter items by name or ID...");
 	right_sizer->Add(item_filter_text, 0, wxEXPAND | wxALL, 5);
 
@@ -231,8 +260,7 @@ void BorderEditorDialog::LoadBordersFromMemory() {
 	}
 
 	// Sort by ID
-	std::sort(border_list.begin(), border_list.end(),
-		[](const BorderData &a, const BorderData &b) { return a.id < b.id; });
+	std::sort(border_list.begin(), border_list.end(), [](const BorderData &a, const BorderData &b) { return a.id < b.id; });
 }
 
 wxString BorderEditorDialog::GetBorderDisplayName(const BorderData &border) const {
@@ -383,8 +411,7 @@ void BorderEditorDialog::OnAddBorder(wxCommandEvent &event) {
 	border_list.push_back(newBorder);
 
 	// Sort by ID
-	std::sort(border_list.begin(), border_list.end(),
-		[](const BorderData &a, const BorderData &b) { return a.id < b.id; });
+	std::sort(border_list.begin(), border_list.end(), [](const BorderData &a, const BorderData &b) { return a.id < b.id; });
 
 	RefreshBorderList();
 
@@ -408,7 +435,8 @@ void BorderEditorDialog::OnRemoveBorder(wxCommandEvent &event) {
 
 	int result = wxMessageBox(
 		wxString::Format("Remove Border %u?", border_list[current_selection].id),
-		"Confirm", wxYES_NO | wxICON_QUESTION, this);
+		"Confirm", wxYES_NO | wxICON_QUESTION, this
+	);
 
 	if (result != wxYES) {
 		return;
@@ -533,9 +561,18 @@ bool BorderEditorDialog::SaveBordersToXML() {
 
 		// Write edges in a consistent order
 		int edge_write_order[] = {
-			NORTH_HORIZONTAL, EAST_HORIZONTAL, SOUTH_HORIZONTAL, WEST_HORIZONTAL,
-			NORTHWEST_CORNER, NORTHEAST_CORNER, SOUTHWEST_CORNER, SOUTHEAST_CORNER,
-			NORTHWEST_DIAGONAL, NORTHEAST_DIAGONAL, SOUTHEAST_DIAGONAL, SOUTHWEST_DIAGONAL,
+			NORTH_HORIZONTAL,
+			EAST_HORIZONTAL,
+			SOUTH_HORIZONTAL,
+			WEST_HORIZONTAL,
+			NORTHWEST_CORNER,
+			NORTHEAST_CORNER,
+			SOUTHWEST_CORNER,
+			SOUTHEAST_CORNER,
+			NORTHWEST_DIAGONAL,
+			NORTHEAST_DIAGONAL,
+			SOUTHEAST_DIAGONAL,
+			SOUTHWEST_DIAGONAL,
 		};
 
 		for (int edgeId : edge_write_order) {

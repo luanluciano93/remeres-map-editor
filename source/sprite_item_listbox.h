@@ -30,18 +30,21 @@ public:
 		wxString name;
 	};
 
-	ItemPickerListBox(wxWindow* parent, wxWindowID id, const wxPoint& pos = wxDefaultPosition,
-		const wxSize& size = wxDefaultSize);
+	ItemPickerListBox(wxWindow* parent, wxWindowID id, const wxPoint &pos = wxDefaultPosition, const wxSize &size = wxDefaultSize);
 
-	void AddItem(uint16_t id, uint16_t clientID, const wxString& name);
+	void AddItem(uint16_t id, uint16_t clientID, const wxString &name);
 	void ClearItems();
 	void DoneAdding();
-	size_t GetCount() const { return entries.size(); }
-	const Entry& GetEntry(size_t index) const { return entries[index]; }
+	size_t GetCount() const {
+		return entries.size();
+	}
+	const Entry &GetEntry(size_t index) const {
+		return entries[index];
+	}
 	uint16_t GetSelectedItemID() const;
 
 protected:
-	void OnDrawItem(wxDC& dc, const wxRect& rect, size_t n) const override;
+	void OnDrawItem(wxDC &dc, const wxRect &rect, size_t n) const override;
 	wxCoord OnMeasureItem(size_t n) const override;
 
 private:
@@ -59,17 +62,20 @@ public:
 		wxString name;
 	};
 
-	BrushItemListBox(wxWindow* parent, wxWindowID id, const wxPoint& pos = wxDefaultPosition,
-		const wxSize& size = wxDefaultSize);
+	BrushItemListBox(wxWindow* parent, wxWindowID id, const wxPoint &pos = wxDefaultPosition, const wxSize &size = wxDefaultSize);
 
-	void AddItem(uint16_t id, uint16_t clientID, int chance, const wxString& name);
+	void AddItem(uint16_t id, uint16_t clientID, int chance, const wxString &name);
 	void ClearItems();
 	void DoneAdding();
-	size_t GetCount() const { return entries.size(); }
-	const Entry& GetEntry(size_t index) const { return entries[index]; }
+	size_t GetCount() const {
+		return entries.size();
+	}
+	const Entry &GetEntry(size_t index) const {
+		return entries[index];
+	}
 
 protected:
-	void OnDrawItem(wxDC& dc, const wxRect& rect, size_t n) const override;
+	void OnDrawItem(wxDC &dc, const wxRect &rect, size_t n) const override;
 	wxCoord OnMeasureItem(size_t n) const override;
 
 private:
