@@ -376,6 +376,9 @@ public:
 	void OpenMap();
 	void SaveMap();
 	void SaveMapAs();
+	void StartAutoSave();
+	void StopAutoSave();
+	void OnAutoSave(wxTimerEvent &event);
 	bool LoadMap(const FileName &fileName);
 	const MapVersion &getLoadedMapVersion() const {
 		return m_loadedMapVersion;
@@ -457,6 +460,8 @@ public:
 	ZoneBrush* zone_brush;
 
 	std::unique_ptr<canary::protobuf::appearances::Appearances> m_appearancesPtr; // Protobuf appearances file parsed
+
+	wxTimer* autosave_timer = nullptr;
 
 protected:
 	//=========================================================================

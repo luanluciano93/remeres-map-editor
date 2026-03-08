@@ -188,6 +188,9 @@ bool Application::OnInit() {
 		g_gui.root->Show();
 	}
 
+	// Start auto-save timer if enabled
+	g_gui.StartAutoSave();
+
 	// Set idle event handling mode
 	wxIdleEvent::SetMode(wxIDLE_PROCESS_SPECIFIED);
 

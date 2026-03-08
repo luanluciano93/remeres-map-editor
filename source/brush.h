@@ -80,8 +80,30 @@ public:
 		return brushes;
 	}
 
-protected:
 	typedef std::map<uint32_t, AutoBorder*> BorderMap;
+
+	const BorderMap &getBorders() const noexcept {
+		return borders;
+	}
+
+	AutoBorder* getBorder(uint32_t id) const {
+		auto it = borders.find(id);
+		return it != borders.end() ? it->second : nullptr;
+	}
+
+	void addBorder(uint32_t id, AutoBorder* border) {
+		borders[id] = border;
+	}
+
+	void removeBorder(uint32_t id) {
+		auto it = borders.find(id);
+		if (it != borders.end()) {
+			delete it->second;
+			borders.erase(it);
+		}
+	}
+
+protected:
 	BrushMap brushes;
 	BorderMap borders;
 
@@ -314,6 +336,11 @@ public:
 	}
 
 	bool friendOf(TerrainBrush* other);
+
+	// Accessors for editor
+	const std::vector<uint32_t> &getFriends() const { return friends; }
+	bool getHateFriends() const { return hate_friends; }
+	void setLookID(uint16_t id) { look_id = id; }
 
 protected:
 	std::vector<uint32_t> friends;

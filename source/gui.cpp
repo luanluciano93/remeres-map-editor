@@ -112,6 +112,7 @@ GUI::GUI() :
 }
 
 GUI::~GUI() {
+	StopAutoSave();
 	delete doodad_buffer_map;
 	delete g_gui.aui_manager;
 	delete OGLContext;
@@ -540,6 +541,38 @@ void GUI::SaveMapAs() {
 		UpdateTitle();
 		root->menu_bar->AddRecentFile(dialog.GetPath());
 		root->UpdateMenubar();
+	}
+}
+
+void GUI::StartAutoSave() {
+	StopAutoSave();
+	if (g_settings.getInteger(Config::AUTOSAVE_ENABLED) == 1) {
+		int interval = g_settings.getInteger(Config::AUTOSAVE_INTERVAL);
+		if (interval < 1) {
+			interval = 1;
+		}
+		autosave_timer = newd wxTimer();
+		autosave_timer->Bind(wxEVT_TIMER, &GUI::OnAutoSave, this);
+		autosave_timer->Start(interval * 60 * 1000);
+	}
+}
+
+void GUI::StopAutoSave() {
+	if (autosave_timer) {
+		autosave_timer->Stop();
+		delete autosave_timer;
+		autosave_timer = nullptr;
+	}
+}
+
+void GUI::OnAutoSave(wxTimerEvent &WXUNUSED(event)) {
+	if (!IsEditorOpen()) {
+		return;
+	}
+
+	if (GetCurrentMap().hasFile() && GetCurrentMap().hasChanged()) {
+		SaveCurrentMap(false);
+		SetStatusText("Auto-saved.");
 	}
 }
 

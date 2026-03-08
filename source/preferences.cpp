@@ -126,6 +126,17 @@ wxNotebookPage* PreferencesWindow::CreateGeneralPage() {
 	grid_sizer->Add(delete_backup_days_spin, 0);
 	SetWindowToolTip(tmptext, delete_backup_days_spin, "Configure the number of days after which backups will be automatically deleted.");
 
+	autosave_enabled_chkbox = newd wxCheckBox(general_page, wxID_ANY, "Enable auto-save");
+	autosave_enabled_chkbox->SetValue(g_settings.getInteger(Config::AUTOSAVE_ENABLED) == 1);
+	autosave_enabled_chkbox->SetToolTip("Automatically save the map at a regular interval.");
+	grid_sizer->Add(autosave_enabled_chkbox, 0);
+	grid_sizer->Add(0, 0); // empty cell to keep grid alignment
+
+	grid_sizer->Add(tmptext = newd wxStaticText(general_page, wxID_ANY, "Auto-save interval (minutes): "), 0);
+	autosave_interval_spin = newd wxSpinCtrl(general_page, wxID_ANY, i2ws(g_settings.getInteger(Config::AUTOSAVE_INTERVAL)), wxDefaultPosition, wxDefaultSize, wxSP_ARROW_KEYS, 1, 60);
+	grid_sizer->Add(autosave_interval_spin, 0);
+	SetWindowToolTip(tmptext, autosave_interval_spin, "How often the map will be automatically saved (in minutes).");
+
 	sizer->Add(grid_sizer, 0, wxALL, 5);
 	sizer->AddSpacer(10);
 
@@ -615,6 +626,9 @@ void PreferencesWindow::Apply() {
 	g_settings.setInteger(Config::WORKER_THREADS, worker_threads_spin->GetValue());
 	g_settings.setInteger(Config::REPLACE_SIZE, replace_size_spin->GetValue());
 	g_settings.setInteger(Config::DELETE_BACKUP_DAYS, delete_backup_days_spin->GetValue());
+	g_settings.setInteger(Config::AUTOSAVE_ENABLED, autosave_enabled_chkbox->GetValue());
+	g_settings.setInteger(Config::AUTOSAVE_INTERVAL, autosave_interval_spin->GetValue());
+	g_gui.StartAutoSave();
 	g_settings.setInteger(Config::COPY_POSITION_FORMAT, position_format->GetSelection());
 	g_settings.setInteger(Config::COPY_AREA_FORMAT, area_format->GetSelection());
 	if (g_settings.getBoolean(Config::SHOW_TILESET_EDITOR) != enable_tileset_editing_chkbox->GetValue()) {

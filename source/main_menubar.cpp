@@ -25,6 +25,8 @@
 #include "dat_debug_view.h"
 #include "result_window.h"
 #include "find_item_window.h"
+#include "border_editor_window.h"
+#include "ground_brush_editor_window.h"
 #include "settings.h"
 
 #include "gui.h"
@@ -112,6 +114,8 @@ MainMenuBar::MainMenuBar(MainFrame* frame) :
 	MAKE_ACTION(EDIT_TOWNS, wxITEM_NORMAL, OnMapEditTowns);
 	MAKE_ACTION(EDIT_ITEMS, wxITEM_NORMAL, OnMapEditItems);
 	MAKE_ACTION(EDIT_MONSTERS, wxITEM_NORMAL, OnMapEditMonsters);
+	MAKE_ACTION(EDIT_BORDERS, wxITEM_NORMAL, OnMapEditBorders);
+	MAKE_ACTION(EDIT_GROUND_BRUSHES, wxITEM_NORMAL, OnMapEditGroundBrushes);
 
 	MAKE_ACTION(CLEAR_INVALID_HOUSES, wxITEM_NORMAL, OnClearHouseTiles);
 	MAKE_ACTION(CLEAR_MODIFIED_STATE, wxITEM_NORMAL, OnClearModifiedState);
@@ -389,6 +393,8 @@ void MainMenuBar::Update() {
 	EnableItem(EDIT_TOWNS, is_local);
 	EnableItem(EDIT_ITEMS, false);
 	EnableItem(EDIT_MONSTERS, false);
+	EnableItem(EDIT_BORDERS, true);
+	EnableItem(EDIT_GROUND_BRUSHES, true);
 
 	EnableItem(MAP_CLEANUP, is_local);
 	EnableItem(MAP_PROPERTIES, is_local);
@@ -1784,6 +1790,16 @@ void MainMenuBar::OnMapEditTowns(wxCommandEvent &WXUNUSED(event)) {
 		town_dialog->ShowModal();
 		town_dialog->Destroy();
 	}
+}
+
+void MainMenuBar::OnMapEditBorders(wxCommandEvent &WXUNUSED(event)) {
+	BorderEditorDialog dialog(frame);
+	dialog.ShowModal();
+}
+
+void MainMenuBar::OnMapEditGroundBrushes(wxCommandEvent &WXUNUSED(event)) {
+	GroundBrushEditorDialog dialog(frame);
+	dialog.ShowModal();
 }
 
 void MainMenuBar::OnMapEditItems(wxCommandEvent &WXUNUSED(event)) {

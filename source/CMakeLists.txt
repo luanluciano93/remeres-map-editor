@@ -124,6 +124,9 @@ target_sources(${PROJECT_NAME}
 	application.cpp
 	artprovider.cpp
 	basemap.cpp
+	border_editor_window.cpp
+	ground_brush_editor_window.cpp
+	sprite_item_listbox.cpp
 	brush.cpp
 	brush_tables.cpp
 	browse_tile_window.cpp

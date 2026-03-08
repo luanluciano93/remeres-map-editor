@@ -23,10 +23,9 @@
 //=============================================================================
 
 class GroundBrush : public TerrainBrush {
-protected:
-	struct BorderBlock;
-
 public:
+	struct BorderBlock; // Forward declaration (defined below)
+
 	static void init();
 
 	GroundBrush();
@@ -72,16 +71,7 @@ public:
 		return optional_border != nullptr;
 	}
 
-protected: // Members
-	int32_t z_order;
-	bool has_zilch_outer_border;
-	bool has_zilch_inner_border;
-	bool has_outer_border;
-	bool has_inner_border;
-	AutoBorder* optional_border;
-	bool use_only_optional; // If this is true, there will be no normal border under the gravel
-	bool randomize;
-
+	// Public structs (needed by editor)
 	struct SpecificCaseBlock {
 		SpecificCaseBlock() :
 			match_group(0), group_match_alignment(BORDER_NONE), to_replace_id(0), with_id(0), delete_all(false) { }
@@ -106,6 +96,30 @@ protected: // Members
 		int chance;
 		uint16_t id;
 	};
+
+	// Accessors for editor
+	int32_t getZOrder() const { return z_order; }
+	void setZOrder(int32_t z) { z_order = z; }
+	bool getRandomize() const { return randomize; }
+	void setRandomize(bool r) { randomize = r; }
+	bool getUseOnlyOptional() const { return use_only_optional; }
+	void setUseOnlyOptional(bool v) { use_only_optional = v; }
+	AutoBorder* getOptionalBorder() const { return optional_border; }
+	void setOptionalBorder(AutoBorder* b) { optional_border = b; }
+	int getTotalChance() const { return total_chance; }
+
+	const std::vector<BorderBlock*> &getBorderBlocks() const { return borders; }
+	const std::vector<ItemChanceBlock> &getBorderItems() const { return border_items; }
+
+protected: // Members
+	int32_t z_order;
+	bool has_zilch_outer_border;
+	bool has_zilch_inner_border;
+	bool has_outer_border;
+	bool has_inner_border;
+	AutoBorder* optional_border;
+	bool use_only_optional; // If this is true, there will be no normal border under the gravel
+	bool randomize;
 
 	struct BorderCluster {
 		uint32_t alignment;

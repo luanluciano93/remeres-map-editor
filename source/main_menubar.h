@@ -81,6 +81,8 @@ namespace MenuBar {
 		EDIT_TOWNS,
 		EDIT_ITEMS,
 		EDIT_MONSTERS,
+		EDIT_BORDERS,
+		EDIT_GROUND_BRUSHES,
 		MAP_CLEANUP,
 		MAP_REMOVE_ITEMS,
 		MAP_REMOVE_CORPSES,
@@ -265,6 +267,8 @@ public:
 	void OnMapEditTowns(wxCommandEvent &event);
 	void OnMapEditItems(wxCommandEvent &event);
 	void OnMapEditMonsters(wxCommandEvent &event);
+	void OnMapEditBorders(wxCommandEvent &event);
+	void OnMapEditGroundBrushes(wxCommandEvent &event);
 	void OnMapCleanHouseItems(wxCommandEvent &event);
 	void OnMapCleanup(wxCommandEvent &event);
 	void OnMapProperties(wxCommandEvent &event);
