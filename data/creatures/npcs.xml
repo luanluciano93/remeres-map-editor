@@ -1026,7 +1026,7 @@
 	<npc name="Zurak (Arena)" looktype="114" lookitem="0" lookaddon="0" lookhead="0" lookbody="0" looklegs="0" lookfeet="0" />
 	<!-- Winter Update 2025 NPCs -->
 	<npc name="Brewmaster Bhaan" looktype="132" lookitem="0" lookaddon="0" lookhead="57" lookbody="113" looklegs="95" lookfeet="115" />
-	<npc name="Captain Marie-Denise Banner" looktype="1691" lookitem="0" lookaddon="0" lookhead="78" lookbody="57" looklegs="76" lookfeet="95" />
+
 	<npc name="Dragon Ancestor Spirit" looktype="1883" lookitem="0" lookaddon="0" lookhead="0" lookbody="0" looklegs="0" lookfeet="0" />
 	<npc name="Drunken Sailor" looktype="128" lookitem="0" lookaddon="0" lookhead="95" lookbody="95" looklegs="95" lookfeet="95" />
 	<npc name="Eldoran the Ambitious" looktype="133" lookitem="0" lookaddon="2" lookhead="95" lookbody="19" looklegs="19" lookfeet="95" />
@@ -1074,4 +1074,26 @@
 	<npc name="Ghouliver" looktype="18" lookitem="0" lookaddon="0" lookhead="0" lookbody="0" looklegs="0" lookfeet="0" />
 	<npc name="Omniphant" looktype="1818" lookitem="0" lookaddon="0" lookhead="0" lookbody="0" looklegs="0" lookfeet="0" />
 	<npc name="Quill" looktype="1848" lookitem="0" lookaddon="0" lookhead="78" lookbody="108" looklegs="39" lookfeet="114" />
+	<npc name="A Merchant Cyclops" looktype="22" lookitem="0" lookaddon="0" lookhead="0" lookbody="0" looklegs="0" lookfeet="0" />
+	<npc name="Addoner" looktype="472" lookitem="0" lookaddon="1" lookhead="59" lookbody="114" looklegs="0" lookfeet="94" />
+	<npc name="Alfa Test" looktype="1662" lookitem="0" lookaddon="3" lookhead="116" lookbody="114" looklegs="95" lookfeet="78" />
+	<npc name="Banker" looktype="328" lookitem="0" lookaddon="0" lookhead="95" lookbody="114" looklegs="98" lookfeet="97" />
+	<npc name="Equipment Saleswoman" looktype="155" lookitem="0" lookaddon="1" lookhead="95" lookbody="21" looklegs="23" lookfeet="114" />
+	<npc name="Food Vendor" looktype="140" lookitem="0" lookaddon="0" lookhead="114" lookbody="3" looklegs="72" lookfeet="16" />
+	<npc name="Furniture Trader" looktype="128" lookitem="0" lookaddon="0" lookhead="95" lookbody="2" looklegs="2" lookfeet="57" />
+	<npc name="Golden Merchant" looktype="471" lookitem="0" lookaddon="2" lookhead="0" lookbody="57" looklegs="0" lookfeet="68" />
+	<npc name="Hunting Tasker" looktype="957" lookitem="0" lookaddon="0" lookhead="78" lookbody="5" looklegs="5" lookfeet="115" />
+	<npc name="Jeweler" looktype="472" lookitem="0" lookaddon="0" lookhead="116" lookbody="114" looklegs="95" lookfeet="78" />
+	<npc name="Loot Assistant" looktype="1575" lookitem="0" lookaddon="2" lookhead="96" lookbody="101" looklegs="120" lookfeet="120" />
+	<npc name="Loteria" looktype="146" lookitem="0" lookaddon="3" lookhead="19" lookbody="19" looklegs="9" lookfeet="58" />
+	<npc name="Magic Merchant" looktype="130" lookitem="0" lookaddon="3" lookhead="0" lookbody="79" looklegs="90" lookfeet="117" />
+	<npc name="Mailwoman" looktype="1537" lookitem="0" lookaddon="0" lookhead="95" lookbody="62" looklegs="0" lookfeet="79" />
+	<npc name="Priest" looktype="57" lookitem="0" lookaddon="0" lookhead="0" lookbody="0" looklegs="0" lookfeet="0" />
+	<npc name="Silver Merchant" looktype="128" lookitem="0" lookaddon="3" lookhead="114" lookbody="0" looklegs="76" lookfeet="94" />
+	<npc name="Soft Restorer" looktype="128" lookitem="0" lookaddon="3" lookhead="40" lookbody="37" looklegs="116" lookfeet="95" />
+	<npc name="Top One Highscore" looktype="1662" lookitem="0" lookaddon="0" lookhead="116" lookbody="114" looklegs="95" lookfeet="78" />
+	<npc name="Top Three Highscore" looktype="1662" lookitem="0" lookaddon="0" lookhead="116" lookbody="114" looklegs="95" lookfeet="78" />
+	<npc name="Top Two Highscore" looktype="1662" lookitem="0" lookaddon="0" lookhead="116" lookbody="114" looklegs="95" lookfeet="78" />
+	<npc name="Task Manager" looktype="144" lookitem="0" lookaddon="3" lookhead="116" lookbody="78" looklegs="94" lookfeet="78" />
+	<npc name="War Private" looktype="146" lookitem="0" lookaddon="3" lookhead="19" lookbody="19" looklegs="9" lookfeet="58" />
 </npcs>

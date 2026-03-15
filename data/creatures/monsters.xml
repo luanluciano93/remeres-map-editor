@@ -1724,4 +1724,42 @@
   <monster name="Tamed Frazzlemaw" looktype="594"/>
   <monster name="Zharvorin's Spirit" looktype="1883"/>
   <monster name="Zharvorin's Soulcage" lookitem="52546"/>
+  <monster name="Blight Bug" looktype="1771"/>
+  <monster name="Blightling" looktype="1766"/>
+  <monster name="Bosses" looktype="1122" lookhead="9" lookbody="10" looklegs="86" lookfeet="79"/>
+  <monster name="Burster Spectre Taskboss" looktype="1122" lookhead="9" lookbody="10" looklegs="86" lookfeet="79"/>
+  <monster name="Crypt Warrior Taskboss" looktype="298"/>
+  <monster name="Demodras Taskboss" looktype="204"/>
+  <monster name="Enraged Pupated Rootthing" looktype="1769"/>
+  <monster name="Ethershreck Taskboss" looktype="351"/>
+  <monster name="Exclusive Caves" looktype="1067"/>
+  <monster name="Frost Dragon Taskboss" looktype="248"/>
+  <monster name="Frost Flower Asura Taskboss" looktype="150" lookfeet="86" lookaddons="3"/>
+  <monster name="Furyosa Taskboss" looktype="149" lookhead="94" lookbody="79" looklegs="77" lookfeet="3" lookaddons="3"/>
+  <monster name="Gorgo Taskboss" looktype="330"/>
+  <monster name="Hunts" looktype="1061" lookhead="79" lookbody="81" looklegs="93"/>
+  <monster name="Lava Lurker Taskboss" looktype="1041"/>
+  <monster name="Lost Berserker Taskboss" looktype="496"/>
+  <monster name="Mawhawk Taskboss" looktype="595"/>
+  <monster name="Mint Drop" looktype="1755"/>
+  <monster name="Phantasm Taskboss" looktype="241"/>
+  <monster name="Pupated Rootthing" looktype="1768"/>
+  <monster name="Quara Kindler" looktype="1759"/>
+  <monster name="Quests" looktype="1063" lookhead="92" lookbody="52" lookfeet="79" lookaddons="3"/>
+  <monster name="Rampant Barrier" looktype="1773"/>
+  <monster name="Reward Room" looktype="1059" lookhead="17" lookbody="41" looklegs="77" lookfeet="57"/>
+  <monster name="Rootthing Buckler" looktype="1760"/>
+  <monster name="Sir Valorcrest Taskboss" looktype="287"/>
+  <monster name="Stonecracker Taskboss" looktype="55"/>
+  <monster name="Test" looktype="1317" lookbody="78" looklegs="57" lookfeet="57" lookaddons="1"/>
+  <monster name="Thorn Lily" looktype="1772"/>
+  <monster name="Trainer" looktype="1317" lookbody="78" looklegs="57" lookfeet="57" lookaddons="1"/>
+  <monster name="Truffle Worker" looktype="1752"/>
+  <monster name="Undead Elite Gladiator Taskboss" looktype="306"/>
+  <monster name="Vile Grandmaster Taskboss" looktype="268" lookhead="59" lookbody="19" looklegs="95" lookfeet="94" lookaddons="1"/>
+  <monster name="War Castle" looktype="1276"/>
+  <monster name="Zarabustor Taskboss" looktype="130" lookbody="77" looklegs="92" lookfeet="97" lookaddons="1"/>
+  <monster name="Zulazza the Corruptor Taskboss" looktype="334"/>
+  <monster name="Iron Bar" lookitem="8569"/>
+  <monster name="Solid Iron Bar" lookitem="8569"/>
 </monsters>
