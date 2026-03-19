@@ -169,18 +169,18 @@ BorderEditorDialog::BorderEditorDialog(wxWindow* parent) :
 	};
 
 	EdgePlacement placements[] = {
-		{ NORTHWEST_DIAGONAL, 0, 0 },  // DNW - top left
-		{ NORTH_HORIZONTAL, 0, 2 },    // N   - top center
-		{ NORTHEAST_DIAGONAL, 0, 4 },  // DNE - top right
-		{ NORTHWEST_CORNER, 1, 1 },    // CNW
-		{ NORTHEAST_CORNER, 1, 3 },    // CNE
-		{ WEST_HORIZONTAL, 2, 0 },     // W   - middle left
-		{ EAST_HORIZONTAL, 2, 4 },     // E   - middle right
-		{ SOUTHWEST_CORNER, 3, 1 },    // CSW
-		{ SOUTHEAST_CORNER, 3, 3 },    // CSE
-		{ SOUTHWEST_DIAGONAL, 4, 0 },  // DSW - bottom left
-		{ SOUTH_HORIZONTAL, 4, 2 },    // S   - bottom center
-		{ SOUTHEAST_DIAGONAL, 4, 4 },  // DSE - bottom right
+		{ NORTHWEST_DIAGONAL, 0, 0 }, // DNW - top left
+		{ NORTH_HORIZONTAL, 0, 2 }, // N   - top center
+		{ NORTHEAST_DIAGONAL, 0, 4 }, // DNE - top right
+		{ NORTHWEST_CORNER, 1, 1 }, // CNW
+		{ NORTHEAST_CORNER, 1, 3 }, // CNE
+		{ WEST_HORIZONTAL, 2, 0 }, // W   - middle left
+		{ EAST_HORIZONTAL, 2, 4 }, // E   - middle right
+		{ SOUTHWEST_CORNER, 3, 1 }, // CSW
+		{ SOUTHEAST_CORNER, 3, 3 }, // CSE
+		{ SOUTHWEST_DIAGONAL, 4, 0 }, // DSW - bottom left
+		{ SOUTH_HORIZONTAL, 4, 2 }, // S   - bottom center
+		{ SOUTHEAST_DIAGONAL, 4, 4 }, // DSE - bottom right
 	};
 
 	for (const auto &p : placements) {
@@ -202,11 +202,19 @@ BorderEditorDialog::BorderEditorDialog(wxWindow* parent) :
 
 	// Add spacers for empty cells to maintain 5x5 grid shape
 	int empty_cells[][2] = {
-		{0, 1}, {0, 3},
-		{1, 0}, {1, 2}, {1, 4},
-		{2, 1}, {2, 2}, {2, 3},
-		{3, 0}, {3, 2}, {3, 4},
-		{4, 1}, {4, 3},
+		{ 0, 1 },
+		{ 0, 3 },
+		{ 1, 0 },
+		{ 1, 2 },
+		{ 1, 4 },
+		{ 2, 1 },
+		{ 2, 2 },
+		{ 2, 3 },
+		{ 3, 0 },
+		{ 3, 2 },
+		{ 3, 4 },
+		{ 4, 1 },
+		{ 4, 3 },
 	};
 	for (const auto &cell : empty_cells) {
 		edge_grid->Add(36, 36, wxGBPosition(cell[0], cell[1]));
