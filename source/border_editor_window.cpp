@@ -26,9 +26,11 @@
 
 #include <pugixml.hpp>
 
-// Edge layout for the grid:
-//   Row 0:  [N]  [E]  [CNW] [CNE] [DNW] [DNE]
-//   Row 1:  [S]  [W]  [CSW] [CSE] [DSW] [DSE]
+// Edge layout for the grid (spatial):
+//   Row 0:  [   ] [DNW] [DNE] [   ]
+//   Row 1:  [ N ] [CNW] [CNE] [ E ]
+//   Row 2:  [ W ] [CSW] [CSE] [ S ]
+//   Row 3:  [   ] [DSW] [DSE] [   ]
 
 BEGIN_EVENT_TABLE(BorderEditorDialog, wxDialog)
 EVT_LISTBOX(BORDER_EDITOR_LISTBOX, BorderEditorDialog::OnSelectBorder)
@@ -151,45 +153,56 @@ BorderEditorDialog::BorderEditorDialog(wxWindow* parent) :
 	// Edge Grid
 	wxStaticBoxSizer* grid_box = newd wxStaticBoxSizer(wxVERTICAL, this, "Border Grid (Click to assign Item ID)");
 
-	// Layout: 2 rows x 6 columns
-	// Row 0: N, E, CNW, CNE, DNW, DNE
-	// Row 1: S, W, CSW, CSE, DSW, DSE
-	wxFlexGridSizer* edge_grid = newd wxFlexGridSizer(6, 5, 5);
+	// Spatial layout: 4x4 grid matching actual border positions
+	// Row 0: [   ] [DNW] [DNE] [   ]
+	// Row 1: [ N ] [CNW] [CNE] [ E ]
+	// Row 2: [ W ] [CSW] [CSE] [ S ]
+	// Row 3: [   ] [DSW] [DSE] [   ]
+	wxGridBagSizer* edge_grid = newd wxGridBagSizer(5, 5);
 
-	// Edge IDs for each cell in row-major order
-	int edge_order[] = {
-		NORTH_HORIZONTAL,
-		EAST_HORIZONTAL,
-		NORTHWEST_CORNER,
-		NORTHEAST_CORNER,
-		NORTHWEST_DIAGONAL,
-		NORTHEAST_DIAGONAL,
-		SOUTH_HORIZONTAL,
-		WEST_HORIZONTAL,
-		SOUTHWEST_CORNER,
-		SOUTHEAST_CORNER,
-		SOUTHWEST_DIAGONAL,
-		SOUTHEAST_DIAGONAL,
+	struct EdgePlacement {
+		int edgeId;
+		int row;
+		int col;
 	};
 
-	for (int i = 0; i < 12; i++) {
-		int edgeId = edge_order[i];
+	EdgePlacement placements[] = {
+		{ NORTHWEST_DIAGONAL, 0, 1 },
+		{ NORTHEAST_DIAGONAL, 0, 2 },
+		{ NORTH_HORIZONTAL, 1, 0 },
+		{ NORTHWEST_CORNER, 1, 1 },
+		{ NORTHEAST_CORNER, 1, 2 },
+		{ EAST_HORIZONTAL, 1, 3 },
+		{ WEST_HORIZONTAL, 2, 0 },
+		{ SOUTHWEST_CORNER, 2, 1 },
+		{ SOUTHEAST_CORNER, 2, 2 },
+		{ SOUTH_HORIZONTAL, 2, 3 },
+		{ SOUTHWEST_DIAGONAL, 3, 1 },
+		{ SOUTHEAST_DIAGONAL, 3, 2 },
+	};
+
+	for (const auto &p : placements) {
 		wxBoxSizer* cell_sizer = newd wxBoxSizer(wxVERTICAL);
 
-		edge_buttons[edgeId] = newd DCButton(this, BORDER_EDITOR_EDGE_BASE + edgeId, wxDefaultPosition, DC_BTN_NORMAL, RENDER_SIZE_32x32, 0);
-		edge_buttons[edgeId]->SetMinSize(wxSize(36, 36));
+		edge_buttons[p.edgeId] = newd DCButton(this, BORDER_EDITOR_EDGE_BASE + p.edgeId, wxDefaultPosition, DC_BTN_NORMAL, RENDER_SIZE_32x32, 0);
+		edge_buttons[p.edgeId]->SetMinSize(wxSize(36, 36));
 
-		// Bind click events
-		edge_buttons[edgeId]->Bind(wxEVT_LEFT_DOWN, &BorderEditorDialog::OnEdgeClick, this);
-		edge_buttons[edgeId]->Bind(wxEVT_RIGHT_DOWN, &BorderEditorDialog::OnEdgeClear, this);
+		edge_buttons[p.edgeId]->Bind(wxEVT_LEFT_DOWN, &BorderEditorDialog::OnEdgeClick, this);
+		edge_buttons[p.edgeId]->Bind(wxEVT_RIGHT_DOWN, &BorderEditorDialog::OnEdgeClear, this);
 
-		edge_labels[edgeId] = newd wxStaticText(this, wxID_ANY, GetEdgeName(edgeId), wxDefaultPosition, wxDefaultSize, wxALIGN_CENTRE_HORIZONTAL);
+		edge_labels[p.edgeId] = newd wxStaticText(this, wxID_ANY, GetEdgeName(p.edgeId), wxDefaultPosition, wxDefaultSize, wxALIGN_CENTRE_HORIZONTAL);
 
-		cell_sizer->Add(edge_buttons[edgeId], 0, wxALIGN_CENTER);
-		cell_sizer->Add(edge_labels[edgeId], 0, wxALIGN_CENTER | wxTOP, 2);
+		cell_sizer->Add(edge_buttons[p.edgeId], 0, wxALIGN_CENTER);
+		cell_sizer->Add(edge_labels[p.edgeId], 0, wxALIGN_CENTER | wxTOP, 2);
 
-		edge_grid->Add(cell_sizer, 0, wxALIGN_CENTER);
+		edge_grid->Add(cell_sizer, wxGBPosition(p.row, p.col), wxDefaultSpan, wxALIGN_CENTER);
 	}
+
+	// Add spacers for empty corner cells to maintain grid shape
+	edge_grid->Add(36, 36, wxGBPosition(0, 0));
+	edge_grid->Add(36, 36, wxGBPosition(0, 3));
+	edge_grid->Add(36, 36, wxGBPosition(3, 0));
+	edge_grid->Add(36, 36, wxGBPosition(3, 3));
 
 	grid_box->Add(edge_grid, 0, wxALL, 5);
 	center_sizer->Add(grid_box, 0, wxEXPAND | wxBOTTOM, 5);
