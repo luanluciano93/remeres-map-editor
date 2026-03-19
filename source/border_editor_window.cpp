@@ -26,11 +26,12 @@
 
 #include <pugixml.hpp>
 
-// Edge layout for the grid (spatial):
-//   Row 0:  [   ] [DNW] [DNE] [   ]
-//   Row 1:  [ N ] [CNW] [CNE] [ E ]
-//   Row 2:  [ W ] [CSW] [CSE] [ S ]
-//   Row 3:  [   ] [DSW] [DSE] [   ]
+// Edge layout for the grid (spatial 5x5):
+//   Row 0:  [DNW] [   ] [ N ] [   ] [DNE]
+//   Row 1:  [   ] [CNW] [   ] [CNE] [   ]
+//   Row 2:  [ W ] [   ] [   ] [   ] [ E ]
+//   Row 3:  [   ] [CSW] [   ] [CSE] [   ]
+//   Row 4:  [DSW] [   ] [ S ] [   ] [DSE]
 
 BEGIN_EVENT_TABLE(BorderEditorDialog, wxDialog)
 EVT_LISTBOX(BORDER_EDITOR_LISTBOX, BorderEditorDialog::OnSelectBorder)
@@ -153,11 +154,12 @@ BorderEditorDialog::BorderEditorDialog(wxWindow* parent) :
 	// Edge Grid
 	wxStaticBoxSizer* grid_box = newd wxStaticBoxSizer(wxVERTICAL, this, "Border Grid (Click to assign Item ID)");
 
-	// Spatial layout: 4x4 grid matching actual border positions
-	// Row 0: [   ] [DNW] [DNE] [   ]
-	// Row 1: [ N ] [CNW] [CNE] [ E ]
-	// Row 2: [ W ] [CSW] [CSE] [ S ]
-	// Row 3: [   ] [DSW] [DSE] [   ]
+	// Spatial layout: 5x5 grid matching actual border positions around a center tile
+	// Row 0: [DNW] [   ] [ N ] [   ] [DNE]
+	// Row 1: [   ] [CNW] [   ] [CNE] [   ]
+	// Row 2: [ W ] [   ] [   ] [   ] [ E ]
+	// Row 3: [   ] [CSW] [   ] [CSE] [   ]
+	// Row 4: [DSW] [   ] [ S ] [   ] [DSE]
 	wxGridBagSizer* edge_grid = newd wxGridBagSizer(5, 5);
 
 	struct EdgePlacement {
@@ -167,18 +169,18 @@ BorderEditorDialog::BorderEditorDialog(wxWindow* parent) :
 	};
 
 	EdgePlacement placements[] = {
-		{ NORTHWEST_DIAGONAL, 0, 1 },
-		{ NORTHEAST_DIAGONAL, 0, 2 },
-		{ NORTH_HORIZONTAL, 1, 0 },
-		{ NORTHWEST_CORNER, 1, 1 },
-		{ NORTHEAST_CORNER, 1, 2 },
-		{ EAST_HORIZONTAL, 1, 3 },
-		{ WEST_HORIZONTAL, 2, 0 },
-		{ SOUTHWEST_CORNER, 2, 1 },
-		{ SOUTHEAST_CORNER, 2, 2 },
-		{ SOUTH_HORIZONTAL, 2, 3 },
-		{ SOUTHWEST_DIAGONAL, 3, 1 },
-		{ SOUTHEAST_DIAGONAL, 3, 2 },
+		{ NORTHWEST_DIAGONAL, 0, 0 },  // DNW - top left
+		{ NORTH_HORIZONTAL, 0, 2 },    // N   - top center
+		{ NORTHEAST_DIAGONAL, 0, 4 },  // DNE - top right
+		{ NORTHWEST_CORNER, 1, 1 },    // CNW
+		{ NORTHEAST_CORNER, 1, 3 },    // CNE
+		{ WEST_HORIZONTAL, 2, 0 },     // W   - middle left
+		{ EAST_HORIZONTAL, 2, 4 },     // E   - middle right
+		{ SOUTHWEST_CORNER, 3, 1 },    // CSW
+		{ SOUTHEAST_CORNER, 3, 3 },    // CSE
+		{ SOUTHWEST_DIAGONAL, 4, 0 },  // DSW - bottom left
+		{ SOUTH_HORIZONTAL, 4, 2 },    // S   - bottom center
+		{ SOUTHEAST_DIAGONAL, 4, 4 },  // DSE - bottom right
 	};
 
 	for (const auto &p : placements) {
@@ -198,11 +200,17 @@ BorderEditorDialog::BorderEditorDialog(wxWindow* parent) :
 		edge_grid->Add(cell_sizer, wxGBPosition(p.row, p.col), wxDefaultSpan, wxALIGN_CENTER);
 	}
 
-	// Add spacers for empty corner cells to maintain grid shape
-	edge_grid->Add(36, 36, wxGBPosition(0, 0));
-	edge_grid->Add(36, 36, wxGBPosition(0, 3));
-	edge_grid->Add(36, 36, wxGBPosition(3, 0));
-	edge_grid->Add(36, 36, wxGBPosition(3, 3));
+	// Add spacers for empty cells to maintain 5x5 grid shape
+	int empty_cells[][2] = {
+		{0, 1}, {0, 3},
+		{1, 0}, {1, 2}, {1, 4},
+		{2, 1}, {2, 2}, {2, 3},
+		{3, 0}, {3, 2}, {3, 4},
+		{4, 1}, {4, 3},
+	};
+	for (const auto &cell : empty_cells) {
+		edge_grid->Add(36, 36, wxGBPosition(cell[0], cell[1]));
+	}
 
 	grid_box->Add(edge_grid, 0, wxALL, 5);
 	center_sizer->Add(grid_box, 0, wxEXPAND | wxBOTTOM, 5);
