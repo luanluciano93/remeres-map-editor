@@ -1762,4 +1762,5 @@
   <monster name="Zulazza the Corruptor Taskboss" looktype="334"/>
   <monster name="Iron Bar" lookitem="8569"/>
   <monster name="Solid Iron Bar" lookitem="8569"/>
+  <monster name="Soulpit" looktype="1699"/>
 </monsters>
